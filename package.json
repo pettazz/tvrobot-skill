@@ -1,0 +1,20 @@
+{
+  "name": "tvrobot-skill",
+  "version": "1.0.0",
+  "description": "Alexa Skill to get the next episode airdate of any TV show",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pettazz/tvrobot-skill.git"
+  },
+  "author": "Nick Pettazzoni",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/pettazz/tvrobot-skill/issues"
+  },
+  "homepage": "https://github.com/pettazz/tvrobot-skill#readme",
+  "dependencies": {
+    "alexa-app": "^2.3.2"
+  }
+}
