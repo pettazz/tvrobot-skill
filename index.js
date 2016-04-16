@@ -28,7 +28,7 @@ app.intent('HelpIntent', {
     ]},
     function(req, res) {
         res.say("You can say something like, when's the next game of thrones, or, when is rick and morty on");
-        return false;
+        res.shouldEndSession(false);
     }
 );
 
