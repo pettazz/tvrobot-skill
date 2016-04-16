@@ -16,7 +16,7 @@
   "homepage": "https://github.com/pettazz/tvrobot-skill#readme",
   "dependencies": {
     "alexa-app": "2.3.2",
-    "moment": "2.12.0",
+    "moment-timezone": "0.5.3",
     "tvmaze": "0.3.0"
   },
   "devDependencies": {

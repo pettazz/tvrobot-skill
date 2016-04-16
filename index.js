@@ -3,7 +3,7 @@
 module.change_code = 1
 
 var Alexa = require('alexa-app');
-var moment = require('moment');
+var moment = require('moment-timezone');
 var TVRobot = require('./tvrobot');
 
 var app = new Alexa.app('tvrobot');
@@ -48,9 +48,9 @@ app.intent('NextEpisodeIntent', {
 function handleNextEpisodeResponse(response, showName){
     var result = tvr.getNextEpisode(showName).then(function(result){
         if(result.success){
-            var sayText = result.data.episodeName + ' airs ' + moment(result.data.episodeAirtimestamp).format('dddd, MMMM Do, [at] h:mm a');
+            var sayText = result.data.episodeName + ' airs ' + moment(result.data.episodeAirtimestamp).tz('America/New_York').format('dddd, MMMM Do, [at] h:mm a [eastern time]');
             var cardTitle = result.data.showName;
-            var cardText = 'Next Episode: ' + result.data.episodeName + ' \n airs on: ' + moment(result.dataepisodeAirtimestamp).format('dddd, MMMM Do YYYY, h:mm a');
+            var cardText = 'Next Episode: ' + result.data.episodeName + ' \n airs on: ' + moment(result.dataepisodeAirtimestamp).tz('America/New_York').format('dddd, MMMM Do YYYY, h:mm a z');
 
             response.say(sayText);
             response.card(cardTitle, cardText);
