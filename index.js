@@ -9,7 +9,7 @@ var TVRobot = require('./tvrobot');
 var app = new Alexa.app('tvrobot');
 var tvr = new TVRobot();
 
-var shows = require('sample-shows');
+var shows = require('./sample-shows');
 
 app.launch(function(req, res) {
     var prompt = 'lol?';
