@@ -12,13 +12,25 @@ var tvr = new TVRobot();
 var shows = require('./sample-shows');
 
 app.launch(function(req, res) {
-    var prompt = 'lol?';
-    res.say(prompt).reprompt(prompt).shouldEndSession(false);
+    var prompt = 'Sup everybody. I\'m a friendly TvRobot. Beep and whatnot. You can ask me when the next episode of any show is on. For examples, say help. To exit, say that thing.';
+    res.say(prompt);
+    res.shouldEndSession(false, 'What show are you looking for?');
 });
 
 app.dictionary = {
     "show_names": shows.titles
 };
+
+app.intent('HelpIntent', {
+   'slots': {},
+    'utterances': [
+        "help"
+    ]},
+    function(req, res) {
+        res.say("You can say something like, when's the next game of thrones, or, when is rick and morty on");
+        return false;
+    }
+);
 
 app.intent('NextEpisodeIntent', {
    'slots': {
