@@ -21,6 +21,20 @@ app.dictionary = {
     "show_names": shows.titles
 };
 
+app.intent('AMAZON.StopIntent', {},
+    function(req, res) {
+        res.say("Bye");
+        res.shouldEndSession(true);
+    }
+);
+
+app.intent('AMAZON.CancelIntent', {},
+    function(req, res) {
+        res.say("Bye");
+        res.shouldEndSession(true);
+    }
+);
+
 app.intent('HelpIntent', {
    'slots': {},
     'utterances': [
