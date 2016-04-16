@@ -42,7 +42,7 @@ TVRobot.prototype.getNextEpisode = function(searchName){
                 return that2.constructResult(true, {
                     showName: showName, 
                     episodeName: episode.name, 
-                    airTimestamp: episode.airstamp
+                    episodeAirTimestamp: episode.airstamp
                 });
             });
         }else{
