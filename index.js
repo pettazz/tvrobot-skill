@@ -67,13 +67,14 @@ function handleNextEpisodeResponse(response, showName){
             var episodeName = result.data.episodeName;
             var episodeAirTimestamp = result.data.episodeAirTimestamp;
 
-            var formattedTime = moment(result.data.episodeAirTimestamp)
-                                .tz('America/New_York')
-                                .format('dddd, MMMM Do, [at] h:mm a z');
+            var zonedTime = moment(result.data.episodeAirTimestamp)
+                                .tz('America/New_York');
+            var sayFormattedTime = zonedTime.format('dddd, MMMM Do, [at] h:mm a [eastern time]');
+            var cardFormattedTime = zonedTime.format('dddd, MMMM Do, [at] h:mm a z');
 
-            var sayText = `The next episode of ${showName}, ${episodeName}, airs ${formattedTime}`;
+            var sayText = `The next episode of ${showName}, ${episodeName}, airs ${sayFormattedTime}`;
             var cardTitle = result.data.showName;
-            var cardText = `Next Episode: ${episodeName} \nAirs on: ${formattedTime}`;
+            var cardText = `Next Episode: ${episodeName} \nAirs on: ${cardFormattedTime}`;
 
             response.say(sayText);
             response.card(cardTitle, cardText);
