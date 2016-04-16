@@ -43,7 +43,7 @@ var titles = [
     "narcos",
     "making a murderer",
     "twin peaks",
-    "i, claudius",
+    "i claudius",
     "seinfeld",
     "friends",
     "freaks and geeks",
