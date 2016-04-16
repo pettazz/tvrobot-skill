@@ -14,7 +14,7 @@ var shows = require('./sample-shows');
 app.launch(function(req, res) {
     var prompt = 'Sup everybody. I\'m a friendly TvRobot. Beep and whatnot. You can ask me when the next episode of any show is on. For examples, say help. To exit, say that thing.';
     res.say(prompt);
-    res.shouldEndSession(false, 'What show are you looking for?');
+    res.shouldEndSession(false, 'What can I find for you?');
 });
 
 app.dictionary = {
