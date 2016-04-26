@@ -52,7 +52,7 @@ TVRobot.prototype.getNextEpisode = function(searchName){
             }else if(show.status === 'Ended'){
                 message = "Looks like " + searchName + " has ended. Bummer.";
             }else{
-                message = "We don't know when the next episode of " + searchName + " is yet. Check back later.";
+                message = "We don't yet know when the next episode of " + searchName + "airs. Check back later.";
             }
             console.log('bad job: ' + message);
             return that.constructResult(false, {message: message});

@@ -5,6 +5,7 @@ function SampleShows ()
 var titles = [
     // IMDB top rated TV shows
     "band of brothers",
+    "archer",
     "planet earth",
     "breaking bad",
     "game of thrones",
@@ -62,7 +63,6 @@ var titles = [
     "dragon ball z",
     "south park",
     "daredevil",
-    "archer",
     "gravity falls",
     "black mirror",
     "house m.d.",

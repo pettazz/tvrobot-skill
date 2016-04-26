@@ -11,12 +11,15 @@ var tvr = new TVRobot();
 
 var shows = require('./sample-shows');
 
+var welcomePrompt = 'Sup everybody. I\'m a friendly TvRobot. Beep and whatnot. You can ask me when the next episode of any show is on. For examples, say help. To exit, say that thing.';
+
 app.launch(function(req, res) {
-    var prompt = 'Sup everybody. I\'m a friendly TvRobot. Beep and whatnot. You can ask me when the next episode of any show is on. For examples, say help. To exit, say that thing.';
     response.session('alive', 'true');
-    res.say(prompt);
+    res.say(welcomePrompt);
     res.shouldEndSession(false, 'What can I find for you?');
 });
+
+app.messages.NO_INTENT_FOUND = welcomePrompt;
 
 app.dictionary = {
     "show_names": shows.titles
@@ -52,13 +55,20 @@ app.intent('NextEpisodeIntent', {
         'SHOWNAME': 'LITERAL'
     },
     'utterances': [
-        "{when is|when's} {the next|} {show_names|SHOWNAME} {on|}"
+        "{when's|when is} {the next|the next episode of|} {show_names|SHOWNAME} {on|}",
+        "when {the next episode of|} {show_names|SHOWNAME} is {on|}",
+        "when does {show_names|SHOWNAME} come back",
+        "when {show_names|SHOWNAME} {is|comes back}"
     ]},
     function(req, res) {
         handleNextEpisodeResponse(res, req.slot('SHOWNAME'));
         return false;
     }
 );
+
+app.error = function(exception, request, response) {
+    response.say(welcomePrompt);
+};
 
 function handleNextEpisodeResponse(response, showName){
     var result = tvr.getNextEpisode(showName).then(function(result){
